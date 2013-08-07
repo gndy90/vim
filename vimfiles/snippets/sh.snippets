@@ -1,0 +1,71 @@
+snippet /       单行注释
+	# ${1}
+snippet -       分隔注释
+	# -------------------------------${1}
+snippet doc     heredoc
+	<<${1:HEREDOC}
+	${2}
+	$1
+# 复合结构
+snippet f       函数定义
+	function ${1:f_name}
+	{
+	  ${2}
+	}
+# 流程控制
+snippet if      if
+	if [ ${1} ]
+	then
+	  ${2}
+	fi
+snippet elif    elif
+	elif [ ${1} ]
+	then
+	  ${2}
+snippet el      else
+	else
+	  ${1}
+snippet th      then
+	then
+	  ${1}
+snippet fo      for循环
+	for ${1}
+snippet foi     for .. in
+	for ${1} in ${2}
+snippet wh      while循环
+	while ${1}
+snippet unt     until循环
+	until ${1}
+snippet sel     select .. in
+	select ${1} in ${2}
+snippet do      do .. done
+	do
+	  ${1}
+	done
+snippet cs      case .. in
+	case ${1} in
+	  ${2}
+	esac
+snippet def     default
+	default ${1};
+# 单个关键字
+snippet lo      局部变量
+	local ${1}
+snippet br      中断
+	break${1}
+snippet co      继续
+	continue${1}
+snippet re      返回
+	return ${1}
+snippet ex      退出并返回状态码
+	exit ${1}
+snippet l       赋值
+	let ${1}
+snippet r       输入
+	read ${1}
+snippet e       输出
+	echo ${1}
+snippet pi      print
+	print ${1}
+snippet pf      printf
+	printf ${1}

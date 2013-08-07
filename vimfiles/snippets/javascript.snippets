@@ -1,0 +1,115 @@
+snippet /       单行注释
+	// ${1}
+snippet //      多行注释
+	/*${1}*/
+snippet -       分隔注释
+	// -------------------------------${1}
+# 全局相关
+snippet us      严格模式
+	"use strict";${1}
+snippet rq      导入包
+	require('${1}');${2}
+snippet ex      导出函数
+	exports.${1}
+# 函数、流程控制
+snippet f       常规函数
+	function ${1:f_name} (${2}) {
+	    ${3}
+	}
+snippet ff      单行匿名函数
+	function (${1}) {${2}}
+snippet wi      with
+	with (${1}) {
+	    ${2}
+	}
+snippet if      if
+	if (${1}) {
+	    ${2}
+	}
+snippet elif    else if
+	else if (${1}) {
+	    ${2}
+	}
+snippet el      else
+	else {
+	    ${1}
+	}
+snippet fo      for
+	for (${1}) {
+	    ${2}
+	}
+snippet wh      while
+	while (${1}) {
+	    ${2}
+	}
+snippet do      do .. while
+	do {
+	    ${2}
+	}
+	while (${1});
+snippet sw      switch
+	switch (${1}) {
+	${2}
+	}
+snippet cs      case
+	case ${1}:
+	    ${2}
+snippet def     default
+	default:
+	    ${1}
+# 单个关键字
+snippet co      继续
+	continue;${1}
+snippet br      中断
+	break;${1}
+snippet re      返回
+	return ${1};
+snippet de      删除
+	delete ${1}
+snippet pt      原型
+	prototype${1}
+snippet tp      类型
+	typeof${1}
+snippet p       文本打印
+	document.writeln(${1});
+snippet al      弹出框
+	alert(${1});
+snippet cl      终端输出
+	console.log(${1});
+snippet len     获取字符串长度
+	length${1}
+snippet v       var
+	var ${1}
+snippet t       this
+	this${1}
+snippet ?       三元运算符
+	${1} ? ${2} : ${3};
+# 常用函数
+snippet toS     转换为字符串
+	toString(${1});
+snippet isF     判断是否在可以表示的数值范围以内
+	isFinite(${1});
+snippet isN     判断是否为非数值
+	isNaN(${1});
+snippet paI     转换为整数
+	parseInt(${1});
+snippet paF     转换为浮点数
+	parseFloat(${1});
+################
+# DOM相关
+snippet gebi    getElementById
+	getElementById('${1}')
+snippet gebt    getElementByTagName
+	getElementByTagName('${1}')
+snippet gebc    getElementByClassName
+	getElementByClassName('${1}')
+snippet gat     getAttribute
+	getAttribute('${1}')
+snippet sat     setAttribute
+	setAttribute('${1}', ${2})
+################
+snippet .       jQuery选择器
+	$(${1})
+snippet >       jQuery选择器（带引号）
+	$('${1}')${2}
+################
