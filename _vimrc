@@ -1,7 +1,7 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-07 22:01
+" -----------------     Date: 2013-08-08 07:13
 " -----------------     For Windows, Cygwin and Linux
 
 
@@ -171,8 +171,8 @@ set shiftwidth=4
 set tabstop=4
 
 " 对部分语言设置单独的缩进
-" au FileType lisp set shiftwidth=2
-" au FileType lisp set tabstop=2
+au FileType lisp set shiftwidth=2
+au FileType lisp set tabstop=2
 
 " 根据后缀名指定文件类型
 au BufRead,BufNewFile *.sql setlocal ft=mysql
@@ -401,6 +401,8 @@ func! Compile_Run_Code()
         else
             exec "!g++ -Wall -std=c++11 -o %:r %:t && ./%:r"
         endif
+    elseif &filetype == "lisp"
+        exec "!clisp -i %:t"
     elseif &filetype == "php"
         exec "!php %:t"
     elseif &filetype == "javascript"
