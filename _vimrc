@@ -1,19 +1,18 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-08 07:13
+" -----------------     Date: 2013-08-08 14:31
 " -----------------     For Windows, Cygwin and Linux
 
 
 " 设置工作地点标志（在公司为1，在家为0）
-let g:atCompany = 0
+let g:atCompany = 1
 
 
 " 设置头文件路径，以及tags路径，用于代码补全
 if g:atCompany
     " set tags+=D:/Ruchee/workspace/common/tags
-    " set path+=D:/Ruchee/MinGW/include
-    " set tags+=D:/Ruchee/MinGW/include/tags
+    " set tags+=D:/Ruchee/workspace/Apps/projects/it_books/system/tags
 else
     " set path+=D:/Develop/MinGW/include
     " set tags+=D:/Develop/MinGW/include/tags
@@ -171,8 +170,8 @@ set shiftwidth=4
 set tabstop=4
 
 " 对部分语言设置单独的缩进
-au FileType lisp set shiftwidth=2
-au FileType lisp set tabstop=2
+au FileType lisp,lua,coffee,sh set shiftwidth=2
+au FileType lisp,lua,coffee,sh set tabstop=2
 
 " 根据后缀名指定文件类型
 au BufRead,BufNewFile *.sql setlocal ft=mysql
@@ -403,8 +402,12 @@ func! Compile_Run_Code()
         endif
     elseif &filetype == "lisp"
         exec "!clisp -i %:t"
+    elseif &filetype == "lua"
+        exec "!lua %:t"
     elseif &filetype == "php"
         exec "!php %:t"
+    elseif &filetype == "coffee"
+        exec "!coffee -c %:t && coffee %:t"
     elseif &filetype == "javascript"
         exec "!node %:t"
     elseif &filetype == "sh"

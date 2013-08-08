@@ -15,24 +15,24 @@ snippet head    头部
 snippet title   标题
 	<title>${1}</title>
 snippet meta    页面信息
-	<meta charset="utf-8"${1}>
+	<meta charset="utf-8"${1} />
 # 主体信息
 snippet body    主体
 	<body>
 	    ${1}
 	</body>
-snippet script  内部脚本
+snippet script  外部脚本
+	<script src="${1}"></script>
+snippet script. 内部脚本
 	<script>
 	    ${1}
 	</script>
-snippet script. 外部脚本
-	<script src="${1}"></script>
+snippet link    外部样式表
+	<link rel="stylesheet" href="${1}" />
 snippet style   内部样式表
 	<style type="text/css">
 	    ${1}
 	</style>
-snippet link    外部样式表
-	<link rel="stylesheet" href="${1}">
 # 重量级标签
 snippet div
 	<div${1}>${2}</div>
@@ -61,7 +61,7 @@ snippet form    表单
 	    ${3}
 	</form>
 snippet input
-	<input type="${1}"${2}>
+	<input type="${1}"${2} />
 snippet label
 	<label for="${1}"${2}></label>
 snippet button

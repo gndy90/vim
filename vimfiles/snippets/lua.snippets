@@ -1,0 +1,64 @@
+snippet /       单行注释
+	-- ${1}
+snippet //      多行注释
+	--[[
+	${1}
+	--]]
+snippet -       分隔注释
+	-- -------------------------------${1}
+snippet rq      包含库文件
+	require("${1}")${2}
+snippet str     多行字符串
+	[[ ${1}]]
+# 函数
+snippet f       多行函数定义
+	function ${1} (${2})
+	  ${3}
+	end
+snippet ff      单行函数定义
+	function ${1} (${2}) return ${3} end${4}
+# 流程控制
+snippet if      if
+	if ${1} then
+	  ${2}
+	end
+snippet elif    elseif
+	elseif ${1} then
+	  ${2}
+snippet el      else
+	else
+	  ${1}
+snippet fo      for
+	for ${1} do
+	  ${2}
+	end
+snippet foi     for in
+	for ${1} in ${2} do
+	  ${3}
+	end
+snippet wh      while
+	while ${1} do
+	  ${2}
+	end
+snippet rep     repeat
+	repeat
+	  ${1}
+	until ${2}
+# 协同程序
+snippet coc     create
+	coroutine.create(${1})
+snippet cos     status
+	coroutine.status(${1})${2}
+snippet cor     resume
+	coroutine.resume(${1})${2}
+snippet coy     yield
+	coroutine.yield(${1})${2}
+# 单个关键字
+snippet br      中断
+	break${1}
+snippet re      返回
+	return ${1}
+snippet lo      局部变量
+	local ${1}
+snippet p       输出
+	print(${1})${2}
