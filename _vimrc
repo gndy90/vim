@@ -1,12 +1,12 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-09 07:07
+" -----------------     Date: 2013-08-09 18:33
 " -----------------     For Windows, Cygwin and Linux
 
 
 " 设置工作地点标志（在公司为1，在家为0）
-let g:atCompany = 0
+let g:atCompany = 1
 
 
 " 设置头文件路径，以及tags路径，用于代码补全

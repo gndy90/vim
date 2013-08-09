@@ -16,7 +16,7 @@ snippet f       多行函数定义
 	  ${3}
 	end
 snippet ff      单行函数定义
-	function ${1} (${2}) return ${3} end${4}
+	function ${1} (${2}) return ${3} end
 # 流程控制
 snippet if      if
 	if ${1} then
@@ -40,10 +40,10 @@ snippet wh      while
 	while ${1} do
 	  ${2}
 	end
-snippet rep     repeat
+snippet rep     repeat .. until
 	repeat
 	  ${1}
-	until ${2}
+	until
 # 协同程序
 snippet coc     create
 	coroutine.create(${1})
@@ -60,5 +60,10 @@ snippet re      返回
 	return ${1}
 snippet lo      局部变量
 	local ${1}
+snippet go      跳转
+	goto ${1}
 snippet p       输出
 	print(${1})${2}
+# 其他
+snippet .       :: ... ::
+	::${1}::

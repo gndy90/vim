@@ -129,7 +129,15 @@ function s:AddTitle()
     call s:BeforeTitle()
 
     let firstLine = line('.')
-    call setline('.',noTypeChar.'===================================================================')
+
+    " 针对部分语言进行特殊的调整
+    " Added by Ruchee 2013-08-09 16:59
+    if &filetype == "lua"
+        call setline('.',noTypeChar.'=================================================================')
+    else
+        call setline('.',noTypeChar.'===================================================================')
+    endif
+
     normal o
     call setline('.',noTypeChar.preChar.'    FileName: '.expand("%:t"))
     normal o

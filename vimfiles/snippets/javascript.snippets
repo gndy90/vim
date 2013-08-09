@@ -9,8 +9,12 @@ snippet us      严格模式
 	"use strict";${1}
 snippet rq      导入包
 	require('${1}');${2}
-snippet ex      导出函数
+snippet vrq     导入包到变量
+	var ${1} = require('${2}');${3}
+snippet ex      导出变量
 	exports.${1}
+snippet mex     覆盖导出
+	module.exports${1}
 # 函数、流程控制
 snippet f       常规函数
 	function ${1:f_name} (${2}) {
@@ -57,6 +61,21 @@ snippet cs      case
 snippet def     default
 	default:
 	    ${1}
+# 异常处理
+snippet thr     抛出异常
+	throw ${1};
+snippet try     监控代码块
+	try {
+	    ${1}
+	}
+snippet cat     捕获异常
+	catch (${1}) {
+	    ${2}
+	}
+snippet fin     善后处理
+	finally {
+	    ${1}
+	}
 # 单个关键字
 snippet co      继续
 	continue;${1}
@@ -86,15 +105,15 @@ snippet ?       三元运算符
 	${1} ? ${2} : ${3};
 # 常用函数
 snippet toS     转换为字符串
-	toString(${1});
+	toString()${1}
 snippet isF     判断是否在可以表示的数值范围以内
-	isFinite(${1});
+	isFinite()${1}
 snippet isN     判断是否为非数值
-	isNaN(${1});
+	isNaN()${1}
 snippet paI     转换为整数
-	parseInt(${1});
+	parseInt()${1}
 snippet paF     转换为浮点数
-	parseFloat(${1});
+	parseFloat()${1}
 ################
 # DOM相关
 snippet gebi    getElementById
