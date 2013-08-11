@@ -10,24 +10,24 @@ snippet doc     heredoc
 snippet f       函数定义
 	function ${1:f_name}
 	{
-	  ${2}
+	    ${2}
 	}
 # 流程控制
 snippet if      if
 	if [ ${1} ]
 	then
-	  ${2}
+	    ${2}
 	fi
 snippet elif    elif
 	elif [ ${1} ]
 	then
-	  ${2}
+	    ${2}
 snippet el      else
 	else
-	  ${1}
+	    ${1}
 snippet th      then
 	then
-	  ${1}
+	    ${1}
 snippet fo      for循环
 	for ${1}
 snippet foi     for .. in
@@ -40,11 +40,11 @@ snippet sel     select .. in
 	select ${1} in ${2}
 snippet do      do .. done
 	do
-	  ${1}
+	    ${1}
 	done
 snippet cs      case .. in
 	case ${1} in
-	  ${2}
+	    ${2}
 	esac
 snippet def     default
 	default ${1};

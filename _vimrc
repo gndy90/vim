@@ -1,12 +1,12 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-09 18:33
+" -----------------     Date: 2013-08-11 22:12
 " -----------------     For Windows, Cygwin and Linux
 
 
 " 设置工作地点标志（在公司为1，在家为0）
-let g:atCompany = 1
+let g:atCompany = 0
 
 
 " 设置头文件路径，以及tags路径，用于代码补全
@@ -170,12 +170,13 @@ set shiftwidth=4
 set tabstop=4
 
 " 对部分语言设置单独的缩进
-au FileType lisp,lua,ruby,coffee,sh set shiftwidth=2
-au FileType lisp,lua,ruby,coffee,sh set tabstop=2
+au FileType lisp set shiftwidth=2
+au FileType lisp set tabstop=2
 
 " 根据后缀名指定文件类型
-au BufRead,BufNewFile *.sql setlocal ft=mysql
-au BufRead,BufNewFile *.txt setlocal ft=txt
+au BufRead,BufNewFile *.wlua setlocal ft=lua
+au BufRead,BufNewFile *.sql  setlocal ft=mysql
+au BufRead,BufNewFile *.txt  setlocal ft=txt
 
 
 " 设置着色模式和字体
@@ -403,15 +404,9 @@ func! Compile_Run_Code()
     elseif &filetype == "lisp"
         exec "!clisp -i %:t"
     elseif &filetype == "lua"
-        exec "!lua %:t"
+        exec "!lua52 %:t"
     elseif &filetype == "php"
         exec "!php %:t"
-    elseif &filetype == "ruby"
-        exec "!ruby %:t"
-    elseif &filetype == "coffee"
-        exec "!coffee -c %:t && coffee %:t"
-    elseif &filetype == "javascript"
-        exec "!node %:t"
     elseif &filetype == "sh"
         exec "!bash %:t"
     endif
