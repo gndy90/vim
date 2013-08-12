@@ -228,7 +228,7 @@ let s:delimiterMap = {
     \ 'lprolog': { 'left': '%' },
     \ 'lscript': { 'left': "'" },
     \ 'lss': { 'left': '#' },
-    \ 'lua': { 'left': '--', 'leftAlt': '--[[', 'rightAlt': ']]' },
+    \ 'lua': { 'left': '--', 'leftAlt': '--[[', 'rightAlt': '--]]' },
     \ 'lynx': { 'left': '#' },
     \ 'lytex': { 'left': '%' },
     \ 'mail': { 'left': '> ' },
