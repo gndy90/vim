@@ -1,18 +1,16 @@
 snippet /       单行注释
 	// ${1}
 snippet //      多行注释
-	/* ${1}*/
+	/*${1}*/
 snippet -       分隔注释
 	// -------------------------------${1}
 # 预处理
 snippet in      包含系统头文件
-	#include <${1}>${2}
+	#include <${1}.h>${2}
 snippet in.     包含自定义头文件
-	#include "${1}"${2}
-snippet ini     包含标准输入输出库
-	#include <iostream>${2}
-snippet ins     包含标准输入输出头文件
-	#include <stdio.h>${2}
+	#include "${1}.h"${2}
+snippet ins     包括标准头文件
+	#include <stdio.h>${1}
 snippet df      宏定义
 	#define ${1}
 snippet ifdf    包含了指定头文件时的处理方式
@@ -26,44 +24,6 @@ snippet ifndf   防止头文件重复包含
 	${2}
 
 	#endif
-# 命名空间、类
-snippet u       引用命名空间
-	using namespace ${1:std};${2}
-snippet na      命名空间
-	namespace ${1:na_name}
-	{
-	    ${2}
-	}
-snippet cl      类定义
-	class ${1:cl_name}
-	{
-	    ${2}
-	};
-snippet fc      构造函数
-	${1:f_name} (${2}) ${3}
-	{
-	    ${4}
-	}
-snippet fd      析构函数
-	~${1:f_name} ()
-	{
-	    ${3}
-	}
-# 异常处理
-snippet thr     抛出异常
-	throw ${1};
-snippet try     捕获异常
-	try {
-	    ${1}
-	}
-snippet cat     处理异常
-	catch (${1}) {
-	    ${2}
-	}
-snippet fin     善后处理
-	finally {
-	    ${1}
-	}
 # 函数
 snippet main    主函数
 	int main (int argc, char *argv[])
@@ -73,15 +33,12 @@ snippet main    主函数
 	    return 0;
 	}
 snippet f       函数定义
-	${1:f_name} (${2})
-	{
-	    ${3}
-	}
-snippet cf      类方法定义
-	${1:f_name} (${2}) ${3}
+	${1:void} ${2:f_name} (${3})
 	{
 	    ${4}
 	}
+snippet fd      函数声明
+	${1:void} ${2:f_name} (${3});${4}
 # 复合类型
 snippet str     结构体定义
 	struct ${1:str_name} {
@@ -153,36 +110,6 @@ snippet spr
 snippet fpr
 	fprintf(${1:stderr}, "${2:%s}"${3});
 # 单个关键字
-snippet pu      公共
-	public${1}
-snippet po      保护
-	protected${1}
-snippet pr      私有
-	private${1}
-snippet fr      友元
-	friend ${1}
-snippet vi      虚函数
-	virtual ${1}
-snippet tpt     模板1
-	template <typename ${1}>
-snippet tpc     模板2
-	template <class ${1}>
-snippet de      删除
-	delete ${1}
-snippet op      运算符
-	operator${1}
-snippet ve      向量容器
-	vector <${1}>
-snippet li      列表
-	list${1}
-snippet it      迭代器
-	iterator${1}
-snippet cit     只读迭代器
-	const_iterator${1}
-snippet szt     String、各个容器
-	size_type${1}
-snippet dit     两迭代器的差值
-	difference_type${1}
 snippet ex      退出并返回状态码
 	exit(${1});
 snippet re      返回
@@ -215,8 +142,3 @@ snippet ?       三元运算符
 	${1} ? ${2} : ${3};
 snippet .       ->
 	->${1}
-# C标准库常用函数
-snippet gch     获取字符
-	getchar()${1}
-snippet pch     输出字符
-	putchar(${1})

@@ -1,0 +1,53 @@
+snippet /       单行注释
+	; ${1}
+snippet -       分隔注释
+	; -------------------------------${1}
+snippet rq      导入包
+	require ${1}
+snippet ld      加载源文件
+	load "${1}"
+# 变量、函数、语言结构
+snippet d       定义变量
+	define ${1}
+snippet df      定义函数
+	define (${1})${2}
+snippet la      匿名函数
+	lambda (${1})${2}
+snippet co      点对
+	cons ${1}
+snippet li      列表
+	list ${1}
+snippet ca      点对第一个元素
+	car ${1}
+snippet cd      点对剩余元素
+	cdr ${1}
+# 流程控制
+snippet if      if
+	if (${1})${2}
+# 单个关键字
+snippet .       '#
+	'#${1}
+# 判断函数
+snippet nu?     是否为空
+	null? ${1}
+snippet st=?    两字符串是否相等
+	string=? ${1}
+# 类型转换
+snippet nm>st   数值转字符串
+	number->string ${1}
+snippet st>nm   字符串转数值
+	string->number ${1}
+# 常用函数
+snippet stap    拼接字符串
+	string-append ${1}
+snippet stle    获取字符串的长度
+	string-length ${1}
+# 其他
+snippet .       #'
+	#'${1}
+snippet <       `
+	\`${1}
+snippet >       '
+	'${1}
+snippet *       **
+	*${1}*${2}
