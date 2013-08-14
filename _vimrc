@@ -1,12 +1,12 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-13 23:18
+" -----------------     Date: 2013-08-14 14:22
 " -----------------     For Windows, Cygwin and Linux
 
 
 " 设置工作地点标志（在公司为1，在家为0）
-let g:atCompany = 0
+let g:atCompany = 1
 
 
 " 设置头文件路径，以及tags路径，用于代码补全
@@ -14,8 +14,7 @@ if g:atCompany
     " set tags+=D:/Ruchee/workspace/common/tags
     " set tags+=D:/Ruchee/workspace/Apps/projects/it_books/system/tags
 else
-    " set path+=D:/Develop/TCC/include
-    " set tags+=D:/Develop/TCC/include/tags
+    " set path+=D:/Develop/MinGW/include
 endif
 
 
@@ -133,16 +132,6 @@ endif
 " gJ                         --将多行代码集中成单行
 " gS                         --将单行代码扩展成多行
 
-" ---------- multiple-cursors [多位置操作] -----------------
-"
-" Ctrl + N                   --初选/向下增选
-" Ctrl + P                   --向上减选
-" Ctrl + X                   --向下跳选
-" c or s                     --替换
-" d                          --删除
-" i or a or I or A           --插入
-" <ESC>                      --离开选择模式
-
 " ---------- Vimwiki [Vim中的wiki/blog系统] ----------------
 "
 " 链接：[[链接地址|链接描述]]
@@ -170,8 +159,8 @@ set shiftwidth=4
 set tabstop=4
 
 " 对部分语言设置单独的缩进
-au FileType scheme,lisp,ruby,sh set shiftwidth=2
-au FileType scheme,lisp,ruby,sh set tabstop=2
+au FileType lisp,ruby,eruby,coffee,sh set shiftwidth=2
+au FileType lisp,ruby,eruby,coffee,sh set tabstop=2
 
 " 根据后缀名指定文件类型
 au BufRead,BufNewFile *.h   setlocal ft=c
@@ -181,8 +170,13 @@ au BufRead,BufNewFile *.txt setlocal ft=txt
 
 
 " 设置着色模式和字体
-colorscheme molokai
-set guifont=Monaco:h11
+if g:isGUI
+    colorscheme molokai
+    set guifont=Monaco:h11
+else
+    colorscheme tango2
+    set guifont=Monaco:h11
+endif
 
 
 set backspace=2              " 设置退格键可用
@@ -306,8 +300,10 @@ endif
 let g:snipMate                         = {}
 " 设置补全项之间的继承关系，比如 PHP补全继承HTML的补全
 let g:snipMate.scope_aliases           = {}
+let g:snipMate.scope_aliases['c']      = 'cpp'
 let g:snipMate.scope_aliases['php']    = 'php,html'
 let g:snipMate.scope_aliases['smarty'] = 'smarty,html'
+let g:snipMate.scope_aliases['eruby']  = 'eruby,html'
 let g:snipMate.scope_aliases['xhtml']  = 'html'
 
 
@@ -323,11 +319,14 @@ let g:vimrc_homepage='http://www.ruchee.com' " 个人主页
 let g:indent_guides_enable_on_vim_startup=0  " 默认关闭
 let g:indent_guides_guide_size=1             " 指定对齐线的尺寸
 
+" AirLine             彩色状态栏
+let g:airline_theme='badwolf'                " 设置主题
+
 " Syntastic           语法检查
 let g:syntastic_check_on_open=1              " 默认开启
 let g:syntastic_mode_map={'mode': 'active',
             \'active_filetypes':  [],
-            \'passive_filetypes': ['ruby', 'html', 'xhtml', 'smarty']
+            \'passive_filetypes': ['html', 'xhtml', 'smarty', 'eruby']
             \}                               " 指定不需要检查的语言
 
 
@@ -391,9 +390,15 @@ func! Compile_Run_Code()
     exec "w"
     if &filetype == "c"
         if g:isWIN
-            exec "!tcc %:t && %:r.exe"
+            exec "!gcc -Wall -std=c11 -o %:r %:t && %:r.exe"
         else
-            exec "!tcc %:t && ./%:r"
+            exec "!gcc -Wall -std=c11 -o %:r %:t && ./%:r"
+        endif
+    elseif &filetype == "cpp"
+        if g:isWIN
+            exec "!g++ -Wall -std=c++11 -o %:r %:t && %:r.exe"
+        else
+            exec "!g++ -Wall -std=c++11 -o %:r %:t && ./%:r"
         endif
     elseif &filetype == "d"
         if g:isWIN
@@ -401,22 +406,16 @@ func! Compile_Run_Code()
         else
             exec "!dmd %:t && ./%:r"
         endif
-    elseif &filetype == "scheme"
-        exec "!guile -l %:t"
     elseif &filetype == "lisp"
         exec "!clisp -i %:t"
     elseif &filetype == "ruby"
         exec "!ruby %:t"
     elseif &filetype == "php"
         exec "!php %:t"
+    elseif &filetype == "coffee"
+        exec "!coffee -c %:t && coffee %:t"
     elseif &filetype == "sh"
         exec "!bash %:t"
-    elseif &filetype == "make"
-        if g:isWIN
-            exec "!make && app.exe"
-        else
-            exec "!make && ./app"
-        endif
     endif
 endfunc
 
