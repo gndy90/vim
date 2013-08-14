@@ -1,7 +1,7 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-14 23:47
+" -----------------     Date: 2013-08-15 01:58
 " -----------------     For Windows, Cygwin and Linux
 
 
@@ -164,7 +164,6 @@ au FileType lisp,ruby,eruby,coffee,sh set tabstop=2
 
 " 根据后缀名指定文件类型
 au BufRead,BufNewFile *.h   setlocal ft=c
-au BufRead,BufNewFile *.di  setlocal ft=d
 au BufRead,BufNewFile *.m   setlocal ft=mma
 au BufRead,BufNewFile *.sql setlocal ft=mysql
 au BufRead,BufNewFile *.txt setlocal ft=txt
@@ -400,12 +399,6 @@ func! Compile_Run_Code()
             exec "!g++ -Wall -std=c++11 -o %:r %:t && %:r.exe"
         else
             exec "!g++ -Wall -std=c++11 -o %:r %:t && ./%:r"
-        endif
-    elseif &filetype == "d"
-        if g:isWIN
-            exec "!dmd -wi -unittest %:t && %:r.exe"
-        else
-            exec "!dmd -wi -unittest %:t && ./%:r"
         endif
     elseif &filetype == "lisp"
         exec "!clisp -i %:t"
