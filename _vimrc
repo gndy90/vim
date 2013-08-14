@@ -1,12 +1,12 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-14 15:33
+" -----------------     Date: 2013-08-14 23:47
 " -----------------     For Windows, Cygwin and Linux
 
 
 " 设置工作地点标志（在公司为1，在家为0）
-let g:atCompany = 1
+let g:atCompany = 0
 
 
 " 设置头文件路径，以及tags路径，用于代码补全
@@ -165,6 +165,7 @@ au FileType lisp,ruby,eruby,coffee,sh set tabstop=2
 " 根据后缀名指定文件类型
 au BufRead,BufNewFile *.h   setlocal ft=c
 au BufRead,BufNewFile *.di  setlocal ft=d
+au BufRead,BufNewFile *.m   setlocal ft=mma
 au BufRead,BufNewFile *.sql setlocal ft=mysql
 au BufRead,BufNewFile *.txt setlocal ft=txt
 
