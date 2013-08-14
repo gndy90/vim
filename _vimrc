@@ -1,7 +1,7 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-14 14:22
+" -----------------     Date: 2013-08-14 15:33
 " -----------------     For Windows, Cygwin and Linux
 
 
@@ -402,9 +402,9 @@ func! Compile_Run_Code()
         endif
     elseif &filetype == "d"
         if g:isWIN
-            exec "!dmd %:t && %:r.exe"
+            exec "!dmd -wi -unittest %:t && %:r.exe"
         else
-            exec "!dmd %:t && ./%:r"
+            exec "!dmd -wi -unittest %:t && ./%:r"
         endif
     elseif &filetype == "lisp"
         exec "!clisp -i %:t"
@@ -428,7 +428,7 @@ imap <leader>T <ESC>:LoadTemplate<CR><ESC>:AuthorInfoDetect<CR><ESC>Gi
 nmap <leader>T :LoadTemplate<CR><ESC>:AuthorInfoDetect<CR><ESC>Gi
 
 
-" ======= VimWiki ======= "
+" ======= Vimwiki ======= "
 
 let g:vimwiki_w32_dir_enc='utf-8' " 设置编码
 
