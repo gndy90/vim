@@ -1,12 +1,12 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-15 22:22
+" -----------------     Date: 2013-08-16 16:19
 " -----------------     For Windows, Cygwin and Linux
 
 
 " 设置工作地点标志（在公司为1，在家为0）
-let g:atCompany = 0
+let g:atCompany = 1
 
 
 " 设置头文件路径，以及tags路径，用于代码补全
@@ -397,6 +397,8 @@ func! Compile_Run_Code()
         exec "!php %:t"
     elseif &filetype == "coffee"
         exec "!coffee -c %:t && coffee %:t"
+    elseif &filetype == "javascript"
+        exec "!node %:t"
     elseif &filetype == "sh"
         exec "!bash %:t"
     endif

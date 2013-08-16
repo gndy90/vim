@@ -13,7 +13,7 @@ snippet vrq     导入包到变量
 	var ${1} = require('${2}');${3}
 snippet ex      导出变量
 	exports.${1}
-snippet mex     覆盖导出
+snippet moex    覆盖导出
 	module.exports${1}
 # 函数、流程控制
 snippet f       常规函数
@@ -89,6 +89,8 @@ snippet pt      原型
 	prototype${1}
 snippet tp      类型
 	typeof${1}
+snippet udf     未定义
+	undefined${1}
 snippet p       文本打印
 	document.writeln(${1});
 snippet al      弹出框
@@ -104,15 +106,15 @@ snippet t       this
 snippet ?       三元运算符
 	${1} ? ${2} : ${3};
 # 常用函数
-snippet toS     转换为字符串
+snippet tos     转换为字符串
 	toString()${1}
-snippet isF     判断是否在可以表示的数值范围以内
+snippet isf     判断是否在可以表示的数值范围以内
 	isFinite()${1}
-snippet isN     判断是否为非数值
+snippet isn     判断是否为非数值
 	isNaN()${1}
-snippet paI     转换为整数
+snippet pai     转换为整数
 	parseInt()${1}
-snippet paF     转换为浮点数
+snippet paf     转换为浮点数
 	parseFloat()${1}
 ################
 # DOM相关
@@ -122,9 +124,9 @@ snippet gebt    getElementByTagName
 	getElementByTagName('${1}')
 snippet gebc    getElementByClassName
 	getElementByClassName('${1}')
-snippet gat     getAttribute
+snippet ga      getAttribute
 	getAttribute('${1}')
-snippet sat     setAttribute
+snippet sa      setAttribute
 	setAttribute('${1}', ${2})
 ################
 snippet .       jQuery选择器
