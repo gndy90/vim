@@ -1,19 +1,19 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-16 16:19
+" -----------------     Date: 2013-08-18 19:24
 " -----------------     For Windows, Cygwin and Linux
 
 
 " 设置工作地点标志（在公司为1，在家为0）
-let g:atCompany = 1
+let g:atCompany = 0
 
 
 " 设置头文件路径，以及tags路径，用于代码补全
 if g:atCompany
     " set tags+=D:/Ruchee/workspace/common/tags
 else
-    " set path+=D:/Develop/TCC/include
+    " set path+=D:/Develop/MinGW/include
 endif
 
 
@@ -158,12 +158,11 @@ set shiftwidth=4
 set tabstop=4
 
 " 对部分语言设置单独的缩进
-au FileType lisp,coffee,sh set shiftwidth=2
-au FileType lisp,coffee,sh set tabstop=2
+au FileType ruby,eruby,coffee,sh set shiftwidth=2
+au FileType ruby,eruby,coffee,sh set tabstop=2
 
 " 根据后缀名指定文件类型
 au BufRead,BufNewFile *.h   setlocal ft=c
-au BufRead,BufNewFile *.m   setlocal ft=mma
 au BufRead,BufNewFile *.sql setlocal ft=mysql
 au BufRead,BufNewFile *.txt setlocal ft=txt
 
@@ -299,8 +298,11 @@ endif
 let g:snipMate                         = {}
 " 设置补全项之间的继承关系，比如 PHP补全继承HTML的补全
 let g:snipMate.scope_aliases           = {}
+let g:snipMate.scope_aliases['c']      = 'cpp'
 let g:snipMate.scope_aliases['php']    = 'php,html'
 let g:snipMate.scope_aliases['smarty'] = 'smarty,html'
+let g:snipMate.scope_aliases['eruby']  = 'eruby,html'
+let g:snipMate.scope_aliases['scss']   = 'scss,css'
 let g:snipMate.scope_aliases['xhtml']  = 'html'
 
 
@@ -323,7 +325,7 @@ let g:airline_theme='badwolf'                " 设置主题
 let g:syntastic_check_on_open=1              " 默认开启
 let g:syntastic_mode_map={'mode': 'active',
             \'active_filetypes':  [],
-            \'passive_filetypes': ['html', 'xhtml', 'smarty']
+            \'passive_filetypes': ['html', 'xhtml', 'smarty', 'eruby', 'scss']
             \}                               " 指定不需要检查的语言
 
 
@@ -387,12 +389,18 @@ func! Compile_Run_Code()
     exec "w"
     if &filetype == "c"
         if g:isWIN
-            exec "!tcc %:t && %:r.exe"
+            exec "!gcc -Wall -std=c11 -o %:r %:t && %:r.exe"
         else
-            exec "!tcc %:t && ./%:r"
+            exec "!gcc -Wall -std=c11 -o %:r %:t && ./%:r"
         endif
-    elseif &filetype == "lisp"
-        exec "!clisp -i %:t"
+    elseif &filetype == "cpp"
+        if g:isWIN
+            exec "!g++ -Wall -std=c++11 -o %:r %:t && %:r.exe"
+        else
+            exec "!g++ -Wall -std=c++11 -o %:r %:t && ./%:r"
+        endif
+    elseif &filetype == "ruby"
+        exec "!ruby %:t"
     elseif &filetype == "php"
         exec "!php %:t"
     elseif &filetype == "coffee"

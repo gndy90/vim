@@ -1,0 +1,53 @@
+snippet <       控制结构
+	<% ${1} %>
+snippet <=      代码内插
+	<%= ${1} %>
+snippet re      复用模板
+	<%= render ${1} %>
+# 流程控制
+snippet if      if
+	<% if ${1} %>
+	  ${2}
+	<% end %>
+snippet el      else
+	<% else %>
+	  ${1}
+snippet fo      for
+	<% for ${1} in ${2} %>
+	  ${3}
+	<% end %>
+snippet end     结束标签
+	<% end %>${1}
+snippet yi      yield
+	yield${1}
+snippet lit     链接
+	link_to '${1}'${2}
+# 表单
+snippet fmf     建立表单
+	form_for ${1}
+snippet fmt     建立表单，但不绑定Model实例
+	form_tag ${1}
+snippet imt     图片
+	image_tag(${1})
+snippet lb      标签
+	label :${1}
+snippet but     按钮
+	button_to ${1}
+snippet txf     输入框
+	text_field :${1}
+snippet txa     文本框
+	text_area :${1}
+snippet sb      提交按钮
+	submit '${1}'
+# 格式处理
+snippet smf     将\n替换为<br>
+	simple_format${1}
+snippet nutc    将数字以价格形式显示
+	number_to_currency(${1})
+# 其他
+snippet fl      显示提示信息
+	flash[:${1}]
+snippet |       | ... |
+	|${1}|
+snippet .       =>
+	=> ${1}
