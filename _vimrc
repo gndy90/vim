@@ -1,17 +1,19 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-18 19:24
+" -----------------     Date: 2013-08-19 13:05
 " -----------------     For Windows, Cygwin and Linux
 
 
 " 设置工作地点标志（在公司为1，在家为0）
-let g:atCompany = 0
+let g:atCompany = 1
 
 
 " 设置头文件路径，以及tags路径，用于代码补全
 if g:atCompany
     " set tags+=D:/Ruchee/workspace/common/tags
+    " set tags+=D:/Ruchee/workspace/Apps/php/tmvc_primer/core/sysfiles/tags
+    " set tags+=D:/Ruchee/Vim/vimfiles/bundle/vim-snipmate/tags
 else
     " set path+=D:/Develop/MinGW/include
 endif
@@ -39,6 +41,8 @@ endif
 "
 " \T                         --一键加载语法模板       [全模式可用]
 " \R                         --单源文件一键编译运行   [全模式可用]
+"
+" \rb                        --一键去除所有尾部空白   [全模式可用]
 "
 " \ww                        --打开Vimwiki主页
 " \nt                        --打开NERDTree文件树窗口
@@ -158,8 +162,8 @@ set shiftwidth=4
 set tabstop=4
 
 " 对部分语言设置单独的缩进
-au FileType ruby,eruby,coffee,sh set shiftwidth=2
-au FileType ruby,eruby,coffee,sh set tabstop=2
+au FileType lisp,ruby,eruby,coffee,sh set shiftwidth=2
+au FileType lisp,ruby,eruby,coffee,sh set tabstop=2
 
 " 根据后缀名指定文件类型
 au BufRead,BufNewFile *.h   setlocal ft=c
@@ -199,8 +203,8 @@ set cmdheight=2              " 命令行的高度，默认为1，这里设为2
 set writebackup              " 设置无备份文件
 set autoread                 " 当文件在外部被修改时自动更新该文件
 set nobackup
-set list                     " 显示Tab符，使用一高亮竖线代替
-set listchars=tab:\|\ ,
+set list                     " 显示特殊字符符，其中Tab使用高亮竖线代替，尾部空白使用高亮点号代替
+set listchars=tab:\|\ ,trail:.
 set expandtab                " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
 "set showmatch               " 显示括号配对情况
 "set nowrap                  " 设置不自动换行
@@ -381,6 +385,11 @@ nmap <leader>16 <ESC>:%!xxd<ESC>
 " \r16                返回普通格式
 nmap <leader>r16 <ESC>:%!xxd -r<ESC>
 
+" \rb                 一键去除所有尾部空白
+imap <leader>rb <ESC>:let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nmap <leader>rb <ESC>:let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+vmap <leader>rb <ESC>:let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
 
 " ======= 编译 && 运行 && 模板 ======= "
 
@@ -399,6 +408,8 @@ func! Compile_Run_Code()
         else
             exec "!g++ -Wall -std=c++11 -o %:r %:t && ./%:r"
         endif
+    elseif &filetype == "lisp"
+        exec "!clisp -i %:t"
     elseif &filetype == "ruby"
         exec "!ruby %:t"
     elseif &filetype == "php"

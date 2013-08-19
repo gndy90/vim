@@ -10,7 +10,7 @@
 
 #### Windows
 
-1. 访问 `http://www.vim.org/download.php#pc` 下载最新的 gVim [如无法访问该网站，可上 `https://code.google.com/p/unix-cmd-win32/downloads/list` 下载]
+1. 访问 `http://www.vim.org/download.php#pc` 下载最新的 gVim [如无法访问该网站，可上 `http://vim.wendal.net/download.php#pc` 下载]
 2. 安装 gVim 到任意目录，这儿为方便讲解，我假定你安装到了 `D:\Apps\Vim`
 3. 将 `D:\Apps\Vim\vim7*` 目录加入环境变量 [不知何为环境变量者，请 Google]
 4. 删除 Vim 安装目录下的 vimfiles 目录以及 _vimrc 文件 [如果是你自己修改过的配置，请注意备份]

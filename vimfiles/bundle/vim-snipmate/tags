@@ -1,0 +1,79 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+<Plug>snipMateBack	.\plugin\snipMate.vim	/^inoremap <silent> <Plug>snipMateBack           <C-R>=snipMate#BackwardsSnippet()<CR>$/;"	m
+<Plug>snipMateNextOrTrigger	.\plugin\snipMate.vim	/^inoremap <silent> <Plug>snipMateNextOrTrigger  <C-R>=snipMate#TriggerSnippet()<CR>$/;"	m
+<Plug>snipMateShow	.\plugin\snipMate.vim	/^inoremap <silent> <Plug>snipMateShow           <C-R>=snipMate#ShowAvailableSnips()<CR>$/;"	m
+<cr>	.\ftplugin\snippet.vim	/^vnoremap <buffer> <cr> :RetabSnip<cr>$/;"	m
+Add	.\autoload\snipMate_python_demo.vim	/^fun! s:Add(dict, line, source, trigger)$/;"	f
+AddScopeAliases	.\autoload\snipMate.vim	/^fun! s:AddScopeAliases(list)$/;"	f
+BackwardSnippet	.\plugin\snipMate.vim	/^fun! BackwardSnippet()$/;"	f
+BuildTabStops	.\autoload\snipMate.vim	/^fun! s:BuildTabStops(snip, lnum, col, indent)$/;"	f
+ChooseSnippet	.\autoload\snipMate.vim	/^fun! s:ChooseSnippet(snippets)$/;"	f
+Close	.\ftplugin\html_snip_helper.vim	/^fun! Close()$/;"	f
+Count	.\autoload\snipMate.vim	/^fun! s:Count(haystack, needle)$/;"	f
+Filename	.\autoload\snipMate.vim	/^fun! Filename(...)$/;"	f
+Glob	.\autoload\snipMate.vim	/^function! s:Glob(path, expr)$/;"	f
+ProcessSnippet	.\autoload\snipMate.vim	/^fun! s:ProcessSnippet(snip)$/;"	f
+RetabSnip	.\ftplugin\snippet.vim	/^command! -buffer -range=% RetabSnip <line1>,<line2>call snipMate#RetabSnip()$/;"	c
+SnipMateOpenSnippetFiles	.\plugin\snipMateInterface.vim	/^command! SnipMateOpenSnippetFiles call snipMate#OpenSnippetFiles()$/;"	c
+TriggerSnippet	.\plugin\snipMate.vim	/^fun! TriggerSnippet()$/;"	f
+g:snipMate	.\autoload\snipMate.vim	/^  let g:snipMate = {}$/;"	v
+g:snipMate	.\plugin\snipMate.vim	/^  let g:snipMate = {}$/;"	v
+g:snipMateSources	.\plugin\snipMate.vim	/^  let g:snipMateSources = {}$/;"	v
+g:snipMateSources	.\plugin\snipMate.vim	/^  let g:snipMateSources['default'] = funcref#Function('snipMate#DefaultPool')$/;"	v
+grab_visual	.\plugin\snipMate.vim	/^function! s:grab_visual()$/;"	f
+loaded_snips	.\plugin\snipMate.vim	/^let loaded_snips = 1$/;"	v
+map_if_not_mapped	.\after\plugin\snipMate.vim	/^function! s:map_if_not_mapped(lhs, rhs, mode)$/;"	f
+s:c	.\autoload\snipMate.vim	/^let s:c = g:snipMate$/;"	v
+s:c	.\autoload\snipMate.vim	/^let s:c.cache_parsed_snippets_on_disk = get(s:c, 'cache_parsed_snippets_on_disk', 0)$/;"	v
+s:c	.\autoload\snipMate.vim	/^let s:c.read_snippets_cached = get(s:c, 'read_snippets_cached', {'func' : function('snipMate#ReadSnippetsFile'), 'version': 3, 'use_file_cache': s:c.cache_parsed_snippets_on_disk})$/;"	v
+s:c	.\autoload\snipMate.vim	/^let s:c.scope_aliases = get(s:c, 'scope_aliases', {})$/;"	v
+s:c	.\autoload\snipMate.vim	/^let s:c.scope_aliases.cpp = get(s:c.scope_aliases, 'cpp', 'c')$/;"	v
+s:c	.\autoload\snipMate.vim	/^let s:c.scope_aliases.cu = get(s:c.scope_aliases, 'cu', 'c')$/;"	v
+s:c	.\autoload\snipMate.vim	/^let s:c.scope_aliases.eruby = get(s:c.scope_aliases, 'eruby', 'eruby-rails,html')$/;"	v
+s:c	.\autoload\snipMate.vim	/^let s:c.scope_aliases.html = get(s:c.scope_aliases, 'html', 'javascript')$/;"	v
+s:c	.\autoload\snipMate.vim	/^let s:c.scope_aliases.mxml = get(s:c.scope_aliases, 'mxml', 'actionscript')$/;"	v
+s:c	.\autoload\snipMate.vim	/^let s:c.scope_aliases.objc = get(s:c.scope_aliases, 'objc', 'c')$/;"	v
+s:c	.\autoload\snipMate.vim	/^let s:c.scope_aliases.php = get(s:c.scope_aliases, 'php', 'php,html,javascript')$/;"	v
+s:c	.\autoload\snipMate.vim	/^let s:c.scope_aliases.ur = get(s:c.scope_aliases, 'ur', 'html,javascript')$/;"	v
+s:c	.\autoload\snipMate.vim	/^let s:c.scope_aliases.xhtml = get(s:c.scope_aliases, 'xhtml', 'html')$/;"	v
+s:c	.\autoload\snipMate.vim	/^let s:c['no_match_completion_feedkeys_chars'] = get(s:c, 'no_match_completion_feedkeys_chars', "\\t")$/;"	v
+s:d	.\autoload\snipMate.vim	/^let s:d = '\\%([\\\\]\\@<!\\$\\)'$/;"	v
+s:did_snip_helper	.\ftplugin\html_snip_helper.vim	/^let s:did_snip_helper = 1$/;"	v
+s:overwrite	.\after\plugin\snipMate.vim	/^		let s:overwrite = 0$/;"	v
+s:overwrite	.\after\plugin\snipMate.vim	/^		let s:overwrite = maparg('<S-Tab>', 'i') ==? '<Plug>SuperTabBackward'$/;"	v
+s:overwrite	.\after\plugin\snipMate.vim	/^		let s:overwrite = maparg('<Tab>', 'i') ==? '<Plug>SuperTabForward'$/;"	v
+s:save_cpo	.\after\plugin\snipMate.vim	/^let s:save_cpo = &cpo$/;"	v
+s:save_cpo	.\plugin\snipMate.vim	/^let s:save_cpo = &cpo$/;"	v
+s:snipMate	.\plugin\snipMate.vim	/^let s:snipMate = g:snipMate$/;"	v
+s:snipMate	.\plugin\snipMate.vim	/^let s:snipMate['get_scopes'] = get(s:snipMate, 'get_scopes', funcref#Function('return split(&ft,"\\\\.")+[&syntax, "_"]'))$/;"	v
+s:snipMate	.\plugin\snipMate.vim	/^let s:snipMate['get_snippets'] = get(s:snipMate, 'get_snippets', funcref#Function("snipMate#GetSnippets"))$/;"	v
+s:snipMate	.\plugin\snipMate.vim	/^let s:snipMate['snippet_dirs'] = get(s:snipMate, 'snippet_dirs', funcref#Function('return split(&runtimepath,",")'))$/;"	v
+s:state_proto	.\autoload\snipMate.vim	/^let s:state_proto = {}$/;"	v
+snipMate#BackwardsSnippet	.\autoload\snipMate.vim	/^fun! snipMate#BackwardsSnippet()$/;"	f
+snipMate#DefaultPool	.\autoload\snipMate.vim	/^fun! snipMate#DefaultPool(scopes, trigger, result)$/;"	f
+snipMate#EvalGuard	.\autoload\snipMate.vim	/^fun! snipMate#EvalGuard(guard)$/;"	f
+snipMate#GetSnippetFiles	.\autoload\snipMate.vim	/^function! snipMate#GetSnippetFiles(mustExist, scopes, trigger)$/;"	f
+snipMate#GetSnippets	.\autoload\snipMate.vim	/^fun! snipMate#GetSnippets(scopes, trigger)$/;"	f
+snipMate#GetSnippetsForWordBelowCursor	.\autoload\snipMate.vim	/^fun! snipMate#GetSnippetsForWordBelowCursor(word, suffix, break_on_first_match)$/;"	f
+snipMate#OpenSnippetFiles	.\autoload\snipMate.vim	/^fun! snipMate#OpenSnippetFiles()$/;"	f
+snipMate#ReadSnippetsFile	.\autoload\snipMate.vim	/^fun! snipMate#ReadSnippetsFile(file)$/;"	f
+snipMate#RetabSnip	.\autoload\snipMate.vim	/^fun! snipMate#RetabSnip() range$/;"	f
+snipMate#ScopesByFile	.\autoload\snipMate.vim	/^fun! snipMate#ScopesByFile()$/;"	f
+snipMate#SetByPath	.\autoload\snipMate.vim	/^fun! snipMate#SetByPath(dict, path, value)$/;"	f
+snipMate#ShowAvailableSnips	.\autoload\snipMate.vim	/^fun! snipMate#ShowAvailableSnips()$/;"	f
+snipMate#TriggerSnippet	.\autoload\snipMate.vim	/^fun! snipMate#TriggerSnippet()$/;"	f
+snipMate#expandSnip	.\autoload\snipMate.vim	/^fun! snipMate#expandSnip(snip, col)$/;"	f
+snipMate_python_demo#Activate	.\autoload\snipMate_python_demo.vim	/^fun! snipMate_python_demo#Activate()$/;"	f
+snipMate_python_demo#FunctionsFromCurrentFileAndTags	.\autoload\snipMate_python_demo.vim	/^fun! snipMate_python_demo#FunctionsFromCurrentFileAndTags(scopes, trigger, result)$/;"	f
+state_proto.jump_stop	.\autoload\snipMate.vim	/^function! s:state_proto.jump_stop(backwards)$/;"	f
+state_proto.remove	.\autoload\snipMate.vim	/^fun! s:state_proto.remove()$/;"	f
+state_proto.select_word	.\autoload\snipMate.vim	/^function! s:state_proto.select_word()$/;"	f
+state_proto.set_stop	.\autoload\snipMate.vim	/^function! s:state_proto.set_stop(stop)$/;"	f
+state_proto.update_changes	.\autoload\snipMate.vim	/^function! s:state_proto.update_changes()$/;"	f
+state_proto.update_stops	.\autoload\snipMate.vim	/^function! s:state_proto.update_stops()$/;"	f
+state_proto.update_vars	.\autoload\snipMate.vim	/^function! s:state_proto.update_vars(change)$/;"	f
