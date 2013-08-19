@@ -1,230 +1,230 @@
 snippet /       单行注释
-	// ${1}
+	// ${0}
 snippet //      多行注释
-	/* ${1}*/
+	/* ${0}*/
 snippet -       分隔注释
-	// -------------------------------${1}
+	// -------------------------------${0}
 # 预处理
 snippet in      包含系统头文件
-	#include <${1}>${2}
+	#include <${1}>${0}
 snippet in.     包含自定义头文件
-	#include "${1}"${2}
+	#include "${1}"${0}
 snippet ini     包含标准输入输出库
-	#include <iostream>${2}
+	#include <iostream>${0}
 snippet ins     包含标准输入输出头文件
-	#include <stdio.h>${2}
+	#include <stdio.h>${0}
 snippet df      宏定义
-	#define ${1}
+	#define ${0}
 snippet ifdf    包含了指定头文件时的处理方式
 	#ifdef ${1}
-	${2}
+	${0}
 	#endif
 snippet ifndf   防止头文件重复包含
 	#ifndef _HEAD_${1:}_H_
 	#define _HEAD_$1_H_
 
-	${2}
+	${0}
 
 	#endif
 # 命名空间、类
 snippet u       引用命名空间
-	using namespace ${1:std};${2}
+	using namespace ${1:std};${0}
 snippet na      命名空间
 	namespace ${1:na_name}
 	{
-	    ${2}
+	    ${0}
 	}
 snippet cl      类定义
 	class ${1:cl_name}
 	{
-	    ${2}
+	    ${0}
 	};
 snippet fc      构造函数
 	${1:f_name} (${2}) ${3}
 	{
-	    ${4}
+	    ${0}
 	}
 snippet fd      析构函数
 	~${1:f_name} ()
 	{
-	    ${3}
+	    ${0}
 	}
 # 异常处理
 snippet thr     抛出异常
-	throw ${1};
+	throw ${0};
 snippet try     捕获异常
 	try {
-	    ${1}
+	    ${0}
 	}
 snippet cat     处理异常
 	catch (${1}) {
-	    ${2}
+	    ${0}
 	}
 snippet fin     善后处理
 	finally {
-	    ${1}
+	    ${0}
 	}
 # 函数
 snippet main    主函数
 	int main (int argc, char *argv[])
 	{
-	    ${1}
+	    ${0}
 
 	    return 0;
 	}
 snippet f       函数定义
 	${1:void} ${2:f_name} (${3})
 	{
-	    ${4}
+	    ${0}
 	}
 snippet ff      函数声明
-	${1:void} ${2:f_name} (${3});
+	${1:void} ${2:f_name} (${0});
 snippet cf      类方法定义
 	${1:void} ${2:f_name} (${3}) ${4}
 	{
-	    ${5}
+	    ${0}
 	}
 # 复合类型
 snippet str     结构体定义
 	struct ${1:str_name} {
-	    ${2}
+	    ${0}
 	};
 snippet uni     共用体
 	union ${1:uni_name} {
-	    ${2}
+	    ${0}
 	};
 snippet enu     枚举定义
-	enum ${1:enu_name} {${2}};
+	enum ${1:enu_name} {${0}};
 snippet tp      类型定义
-	typedef ${1}
+	typedef ${0}
 snippet tps     定义结构体类型
 	typedef struct ${1} {
 	    ${2}
-	} ${3:str_name};
+	} ${0:str_name};
 snippet tpu     定义共用体类型
 	typedef union ${1} {
 	    ${2}
-	} ${3:uni_name};
+	} ${0:uni_name};
 snippet tpe     定义枚举类型
 	typedef enum ${1} {
 	    ${2}
-	} ${3:enu_name};
+	} ${0:enu_name};
 # 流程控制
 snippet if      if
 	if (${1}) {
-	    ${2}
+	    ${0}
 	}
 snippet elif    else if
 	else if (${1}) {
-	    ${2}
+	    ${0}
 	}
 snippet el      else
 	else {
-	    ${1}
+	    ${0}
 	}
 snippet fo      for
 	for (${1}) {
-	    ${2}
+	    ${0}
 	}
 snippet wh      while
 	while (${1}) {
-	    ${2}
+	    ${0}
 	}
 snippet do      do-while
 	do {
-	    ${2}
+	    ${0}
 	}
 	while (${1});
 snippet sw      switch
 	switch (${1}) {
-	    ${2}
+	    ${0}
 	}
 snippet cs      case
 	case ${1}:
-	    ${2}
+	    ${0}
 snippet def     default
 	default:
-	    ${1}
+	    ${0}
 # 输入输出
 snippet p       输出
-	printf("${1}"${2});
+	printf("${1}"${0});
 snippet s       输入
-	scanf("${1}", ${2});
+	scanf("${1}", ${0});
 snippet spr
-	sprintf(${1:stderr}, "${2:%s}", ${3});
+	sprintf(${1:stderr}, "${2:%s}", ${0});
 snippet fpr
-	fprintf(${1:stderr}, "${2:%s}"${3});
+	fprintf(${1:stderr}, "${2:%s}"${0});
 # 单个关键字
 snippet pu      公共
-	public${1}
+	public${0}
 snippet po      保护
-	protected${1}
+	protected${0}
 snippet pr      私有
-	private${1}
+	private${0}
 snippet fr      友元
-	friend ${1}
+	friend ${0}
 snippet vi      虚函数
-	virtual ${1}
+	virtual ${0}
 snippet tpt     模板1
-	template <typename ${1}>
+	template <typename ${0}>
 snippet tpc     模板2
-	template <class ${1}>
+	template <class ${0}>
 snippet de      删除
-	delete ${1}
+	delete ${0}
 snippet op      运算符
-	operator${1}
+	operator${0}
 snippet ve      向量容器
-	vector <${1}>
+	vector <${0}>
 snippet li      列表
-	list${1}
+	list${0}
 snippet it      迭代器
-	iterator${1}
+	iterator${0}
 snippet cit     只读迭代器
-	const_iterator${1}
+	const_iterator${0}
 snippet szt     String、各个容器
-	size_type${1}
+	size_type${0}
 snippet dit     两迭代器的差值
-	difference_type${1}
+	difference_type${0}
 snippet ex      退出并返回状态码
-	exit(${1});
+	exit(${0});
 snippet re      返回
-	return ${1};
+	return ${0};
 snippet co      继续
-	continue;${1}
+	continue;${0}
 snippet br      中断
-	break;${1}
+	break;${0}
 snippet go      跳转
-	goto ${1}
+	goto ${0}
 snippet un      无符号
-	unsigned ${1}
+	unsigned ${0}
 snippet st      静态
-	static ${1}
+	static ${0}
 snippet con     常量声明
-	const ${1}
+	const ${0}
 snippet reg     寄存器变量
-	register ${1}
+	register ${0}
 snippet vol     声明值有可能不受编译器控制
-	volatile ${1}
+	volatile ${0}
 snippet inl     内联函数
-	inline ${1}
+	inline ${0}
 snippet res     声明指针是访问其所指对象的唯一方式
-	restrict ${1}
+	restrict ${0}
 snippet ext     声明外部变量
-	extern ${1}
+	extern ${0}
 snippet sz      计算占用的内存大小
-	sizeof(${1})
+	sizeof(${0})
 snippet ?       三元运算符
-	${1} ? ${2} : ${3};
+	${1} ? ${2} : ${0};
 snippet i       输入流
-	cin ${1}
+	cin ${0}
 snippet o       输出流
-	cout ${1}
+	cout ${0}
 snippet e       错误流
-	error ${1}
+	error ${0}
 snippet .       ->
-	->${1}
+	->${0}
 # C标准库常用函数
 snippet gch     获取字符
-	getchar()${1}
+	getchar()${0}
 snippet pch     输出字符
-	putchar(${1})
+	putchar(${0})

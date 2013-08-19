@@ -1,7 +1,7 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-19 13:56
+" -----------------     Date: 2013-08-19 18:15
 " -----------------     For Windows, Cygwin and Linux
 
 
@@ -61,8 +61,8 @@ endif
 
 " ---------- 补全命令 ----------
 "
-" <C-P>                      --单词补全
-" <Tab>                      --语法结构补全           [snipMate插件]
+" Ctrl + P                   --单词补全               [插入模式]
+" Tab键                      --语法结构补全   [插入模式][snipMate插件]
 
 " ---------- 格式化命令 ----------
 "
@@ -124,7 +124,7 @@ endif
 "
 " ---------- 便捷操作 ----------
 "
-" Ctrl + N                   --多位置同时操作 [初选+向下增选]      [multiple-cursors插件]
+" Ctrl + N                   --多位置同时操作 [初选+向下增选] [multiple-cursors插件]
 " Ctrl + P                   --多位置同时操作 [向上减选]      [multiple-cursors插件]
 " Ctrl + X                   --多位置同时操作 [向下跳选]      [multiple-cursors插件]
 " m字符       and '字符      --标记位置 and 跳转到标记位置
@@ -167,6 +167,7 @@ au FileType lisp,ruby,eruby,coffee,sh set tabstop=2
 
 " 根据后缀名指定文件类型
 au BufRead,BufNewFile *.h   setlocal ft=c
+au BufRead,BufNewFile *.m   setlocal ft=mma
 au BufRead,BufNewFile *.sql setlocal ft=mysql
 au BufRead,BufNewFile *.txt setlocal ft=txt
 
@@ -203,7 +204,7 @@ set cmdheight=2              " 命令行的高度，默认为1，这里设为2
 set writebackup              " 设置无备份文件
 set autoread                 " 当文件在外部被修改时自动更新该文件
 set nobackup
-set list                     " 显示特殊字符符，其中Tab使用高亮竖线代替，尾部空白使用高亮点号代替
+set list                     " 显示特殊字符，其中Tab使用高亮竖线代替，尾部空白使用高亮点号代替
 set listchars=tab:\|\ ,trail:.
 set expandtab                " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
 "set showmatch               " 显示括号配对情况

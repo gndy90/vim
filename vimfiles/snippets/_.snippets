@@ -1,19 +1,19 @@
 # 全局补全，所有文件类型可用
 snippet sn
-	snippet ${1}
+	snippet ${0}
 snippet cprt 版权信息
-	`&enc[:2] == "utf" ? "©" : "(c)"` Copyright ${1:`strftime("%Y")`} `g:snips_author`. All Rights Reserved.${2}
+	`&enc[:2] == "utf" ? "©" : "(c)"` Copyright ${1:`strftime("%Y")`} `g:snips_author`. All Rights Reserved.${0}
 snippet date 插入当前日期
-	`strftime("%Y-%m-%d")`${1}
+	`strftime("%Y-%m-%d")`${0}
 snippet time 插入当前时间
-	`strftime("%Y-%m-%d %H:%M")`${1}
+	`strftime("%Y-%m-%d %H:%M")`${0}
 snippet fiok 插入文件最后修改时间
-	# LastUpdated: `strftime("%Y-%m-%d %H:%M")`${1}
+	# LastUpdated: `strftime("%Y-%m-%d %H:%M")`${0}
 snippet updt 更新时间
-	Updated: `strftime("%Y-%m-%d %H:%M")`${1}
+	Updated: `strftime("%Y-%m-%d %H:%M")`${0}
 snippet desc 插入文件描述
-	# Description: ${1:write something here}
+	# Description: ${0:write something here}
 snippet adby 添加者
-	Added by `g:snips_author` `strftime("%Y-%m-%d %H:%M")`${1}
+	Added by `g:snips_author` `strftime("%Y-%m-%d %H:%M")`${0}
 snippet upby 更新者
-	Updated by `g:snips_author` `strftime("%Y-%m-%d %H:%M")`${1}
+	Updated by `g:snips_author` `strftime("%Y-%m-%d %H:%M")`${0}

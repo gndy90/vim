@@ -1,136 +1,136 @@
 snippet /       单行注释
-	// ${1}
+	// ${0}
 snippet //      多行注释
-	/*${1}*/
+	/*${0}*/
 snippet -       分隔注释
-	// -------------------------------${1}
+	// -------------------------------${0}
 # 全局相关
 snippet us      严格模式
-	"use strict";${1}
+	"use strict";${0}
 snippet rq      导入包
-	require('${1}');${2}
+	require('${1}');${0}
 snippet vrq     导入包到变量
-	var ${1} = require('${2}');${3}
+	var ${1} = require('${2}');${0}
 snippet ex      导出变量
-	exports.${1}
+	exports.${0}
 snippet moex    覆盖导出
-	module.exports${1}
+	module.exports${0}
 # 函数、流程控制
 snippet f       常规函数
 	function ${1:f_name} (${2}) {
-	    ${3}
+	    ${0}
 	}
 snippet ff      单行匿名函数
-	function (${1}) {${2}}
+	function (${1}) {${0}}
 snippet wi      with
 	with (${1}) {
-	    ${2}
+	    ${0}
 	}
 snippet if      if
 	if (${1}) {
-	    ${2}
+	    ${0}
 	}
 snippet elif    else if
 	else if (${1}) {
-	    ${2}
+	    ${0}
 	}
 snippet el      else
 	else {
-	    ${1}
+	    ${0}
 	}
 snippet fo      for
 	for (${1}) {
-	    ${2}
+	    ${0}
 	}
 snippet wh      while
 	while (${1}) {
-	    ${2}
+	    ${0}
 	}
 snippet do      do .. while
 	do {
-	    ${2}
+	    ${0}
 	}
 	while (${1});
 snippet sw      switch
 	switch (${1}) {
-	    ${2}
+	    ${0}
 	}
 snippet cs      case
 	case ${1}:
-	    ${2}
+	    ${0}
 snippet def     default
 	default:
-	    ${1}
+	    ${0}
 # 异常处理
 snippet thr     抛出异常
-	throw ${1};
+	throw ${0};
 snippet try     监控代码块
 	try {
-	    ${1}
+	    ${0}
 	}
 snippet cat     捕获异常
 	catch (${1}) {
-	    ${2}
+	    ${0}
 	}
 snippet fin     善后处理
 	finally {
-	    ${1}
+	    ${0}
 	}
 # 单个关键字
 snippet co      继续
-	continue;${1}
+	continue;${0}
 snippet br      中断
-	break;${1}
+	break;${0}
 snippet re      返回
-	return ${1};
+	return ${0};
 snippet de      删除
-	delete ${1}
+	delete ${0}
 snippet pt      原型
-	prototype${1}
+	prototype${0}
 snippet tp      类型
-	typeof${1}
+	typeof${0}
 snippet udf     未定义
-	undefined${1}
+	undefined${0}
 snippet p       文本打印
-	document.writeln(${1});
+	document.writeln(${0});
 snippet al      弹出框
-	alert(${1});
+	alert(${0});
 snippet cl      终端输出
-	console.log(${1});
+	console.log(${0});
 snippet len     获取字符串长度
-	length${1}
+	length${0}
 snippet v       var
-	var ${1};
+	var ${0};
 snippet t       this
-	this${1}
+	this${0}
 snippet ?       三元运算符
-	${1} ? ${2} : ${3};
+	${1} ? ${2} : ${0};
 # 常用函数
 snippet tos     转换为字符串
-	toString()${1}
+	toString()${0}
 snippet isf     判断是否在可以表示的数值范围以内
-	isFinite()${1}
+	isFinite()${0}
 snippet isn     判断是否为非数值
-	isNaN()${1}
+	isNaN()${0}
 snippet pai     转换为整数
-	parseInt()${1}
+	parseInt()${0}
 snippet paf     转换为浮点数
-	parseFloat()${1}
+	parseFloat()${0}
 ################
 # DOM相关
 snippet gebi    getElementById
-	getElementById('${1}')
+	getElementById('${0}')
 snippet gebt    getElementByTagName
-	getElementByTagName('${1}')
+	getElementByTagName('${0}')
 snippet gebc    getElementByClassName
-	getElementByClassName('${1}')
+	getElementByClassName('${0}')
 snippet ga      getAttribute
-	getAttribute('${1}')
+	getAttribute('${0}')
 snippet sa      setAttribute
-	setAttribute('${1}', ${2})
+	setAttribute('${0}', ${0})
 ################
 snippet .       jQuery选择器
-	$(${1})
+	$(${0})
 snippet >       jQuery选择器（带引号）
-	$('${1}')${2}
+	$('${1}')${0}
 ################
