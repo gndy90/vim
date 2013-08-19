@@ -1,7 +1,7 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-19 13:05
+" -----------------     Date: 2013-08-19 13:56
 " -----------------     For Windows, Cygwin and Linux
 
 
@@ -13,7 +13,6 @@ let g:atCompany = 1
 if g:atCompany
     " set tags+=D:/Ruchee/workspace/common/tags
     " set tags+=D:/Ruchee/workspace/Apps/php/tmvc_primer/core/sysfiles/tags
-    " set tags+=D:/Ruchee/Vim/vimfiles/bundle/vim-snipmate/tags
 else
     " set path+=D:/Develop/MinGW/include
 endif
@@ -36,13 +35,14 @@ endif
 
 " ---------- Leader系按键 ----------
 "
-" \c                         --复制至公共剪贴板       [仅选择模式]
-" \v                         --从公共剪贴板粘贴       [全模式可用]
+" \c[小写]                   --复制至公共剪贴板       [仅选择模式]
+" \v[小写]                   --从公共剪贴板粘贴       [全模式可用]
 "
-" \T                         --一键加载语法模板       [全模式可用]
-" \R                         --单源文件一键编译运行   [全模式可用]
+" \T[大写]                   --一键加载语法模板       [全模式可用]
+" \R[大写]                   --源码一键编译运行       [全模式可用]
 "
 " \rb                        --一键去除所有尾部空白   [全模式可用]
+" \rt                        --一键替换全部Tab为空格  [全模式可用]
 "
 " \ww                        --打开Vimwiki主页
 " \nt                        --打开NERDTree文件树窗口
@@ -390,6 +390,25 @@ imap <leader>rb <ESC>:let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 nmap <leader>rb <ESC>:let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 vmap <leader>rb <ESC>:let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
+" \rt                 一键替换全部Tab为空格
+func! RemoveTabs()
+    if &shiftwidth == 2
+        exec "%s/	/  /g"
+    elseif &shiftwidth == 4
+        exec "%s/	/    /g"
+    elseif &shiftwidth == 6
+        exec "%s/	/      /g"
+    elseif &shiftwidth == 8
+        exec "%s/	/        /g"
+    else
+        exec "%s/	/ /g"
+    end
+endfunc
+
+imap <leader>rt <ESC>:call RemoveTabs()<CR>
+nmap <leader>rt :call RemoveTabs()<CR>
+vmap <leader>rt <ESC>:call RemoveTabs()<CR>
+
 
 " ======= 编译 && 运行 && 模板 ======= "
 
@@ -426,10 +445,12 @@ endfunc
 " \R         一键保存、编译、运行
 imap <leader>R <ESC>:call Compile_Run_Code()<CR>
 nmap <leader>R :call Compile_Run_Code()<CR>
+vmap <leader>R <ESC>:call Compile_Run_Code()<CR>
 
 " \T         一键加载语法模板
 imap <leader>T <ESC>:LoadTemplate<CR><ESC>:AuthorInfoDetect<CR><ESC>Gi
 nmap <leader>T :LoadTemplate<CR><ESC>:AuthorInfoDetect<CR><ESC>Gi
+vmap <leader>T <ESC>:LoadTemplate<CR><ESC>:AuthorInfoDetect<CR><ESC>Gi
 
 
 " ======= Vimwiki ======= "
