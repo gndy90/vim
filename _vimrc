@@ -1,7 +1,7 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-19 18:15
+" -----------------     Date: 2013-08-20 15:57
 " -----------------     For Windows, Cygwin and Linux
 
 
@@ -112,18 +112,33 @@ endif
 " yw ye y0 y^ y$ yy          --复制
 " vw ve v0 v^ v$ vv          --选中
 "
-" di分隔符                   --删除指定分隔符之间的内容
-" ci分隔符                   --删除指定分隔符之间的内容并进入插入模式
-" yi分隔符                   --复制指定分隔符之间的内容
-" vi分隔符                   --选中指定分隔符之间的内容
+" di分隔符                   --删除指定分隔符之间的内容 [不包括分隔符]
+" ci分隔符                   --删除指定分隔符之间的内容并进入插入模式 [不包括分隔符]
+" yi分隔符                   --复制指定分隔符之间的内容 [不包括分隔符]
+" vi分隔符                   --选中指定分隔符之间的内容 [不包括分隔符]
+"
+" da分隔符                   --删除指定分隔符之间的内容 [包括分隔符]
+" ca分隔符                   --删除指定分隔符之间的内容并进入插入模式 [包括分隔符]
+" ya分隔符                   --复制指定分隔符之间的内容 [包括分隔符]
+" va分隔符                   --选中指定分隔符之间的内容 [包括分隔符]
+"
+" Xi和Xa都可以在X后面加入一个数字，以指代所处理的括号层次
+" 如 d2i( 执行的是删除当前光标外围第二层括号内的所有内容
 "
 " dt字符                     --删除本行内容，直到遇到第一个指定字符 [不包括该字符]
 " ct字符                     --删除本行内容，直到遇到第一个指定字符并进入插入模式 [不包括该字符]
 " yt字符                     --复制本行内容，直到遇到第一个指定字符 [不包括该字符]
 " vt字符                     --选中本行内容，直到遇到第一个指定字符 [不包括该字符]
 "
+" df字符                     --删除本行内容，直到遇到第一个指定字符 [包括该字符]
+" cf字符                     --删除本行内容，直到遇到第一个指定字符并进入插入模式 [包括该字符]
+" yf字符                     --复制本行内容，直到遇到第一个指定字符 [包括该字符]
+" vf字符                     --选中本行内容，直到遇到第一个指定字符 [包括该字符]
+"
 " ---------- 便捷操作 ----------
 "
+" Ctrl + A                   --将当前光标所在数字自增1        [仅普通模式可用]
+" Ctrl + X                   --将当前光标所在数字自减1        [仅普通模式可用]
 " Ctrl + N                   --多位置同时操作 [初选+向下增选] [multiple-cursors插件]
 " Ctrl + P                   --多位置同时操作 [向上减选]      [multiple-cursors插件]
 " Ctrl + X                   --多位置同时操作 [向下跳选]      [multiple-cursors插件]
@@ -140,6 +155,11 @@ endif
 " 链接：[[链接地址|链接描述]]
 " 图片：{{图片地址||属性1="属性值" 属性2="属性值"}}
 " 代码：{{{class="brush: cpp" 代码}}}
+"
+" ---------- 其他常用内建命令 ------------------------------
+"
+" :se ff=unix                --更改文件格式，可选 unix、dos、mac
+" :se ft=cpp                 --更改文件语法着色模式
 
 
 " 判断操作系统类型
@@ -274,7 +294,7 @@ endf
 execute pathogen#infect()
 
 
-" MiniBufExplorer     多个文件切换 可使用鼠标双击相应文件名进行切换
+" MiniBufExplorer     多文件切换，也可使用鼠标双击相应文件名进行切换
 let g:miniBufExplMapWindowNavVim=1
 let g:miniBufExplMapWindowNavArrows=1
 let g:miniBufExplMapCTabSwitchBufs=1
@@ -314,7 +334,7 @@ let g:snipMate.scope_aliases['xhtml']  = 'html'
 " NERD_commenter      注释处理插件
 let NERDSpaceDelims=1                        " 自动添加前置空格
 
-" :AuthorInfoDetect   自动添加作者、时间等信息，本质是NERD_commenter && authorinfo的结合
+" AuthorInfoDetect    自动添加作者、时间等信息，本质是NERD_commenter && authorinfo的结合
 let g:vimrc_author='Ruchee'                  " 昵称
 let g:vimrc_email='my@ruchee.com'            " 邮箱
 let g:vimrc_homepage='http://www.ruchee.com' " 个人主页

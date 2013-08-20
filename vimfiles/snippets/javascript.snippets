@@ -22,7 +22,7 @@ snippet f       常规函数
 	}
 snippet ff      单行匿名函数
 	function (${1}) {${0}}
-snippet wi      with
+snippet wi      指定缺省对象
 	with (${1}) {
 	    ${0}
 	}
@@ -85,12 +85,20 @@ snippet re      返回
 	return ${0};
 snippet de      删除
 	delete ${0}
+snippet ev      执行代码
+	eval(${0})
+snippet ct      构造器
+	constructor${0}
 snippet pt      原型
 	prototype${0}
 snippet tp      类型
 	typeof${0}
+snippet ins     实例
+	instanceof${0}
 snippet udf     未定义
 	undefined${0}
+snippet pie     可列举性
+	propertyIsEnumerable(${0})
 snippet p       文本打印
 	document.writeln(${0});
 snippet al      弹出框
@@ -133,4 +141,4 @@ snippet .       jQuery选择器
 	$(${0})
 snippet >       jQuery选择器（带引号）
 	$('${1}')${0}
-################
+###############

@@ -16,7 +16,7 @@ snippet doc     多行字符串
 # 包含指令
 snippet in      包含模块 [对整个类有效]
 	include ${0}
-snippet ex      包含模块 [只对调用该方法的单个对象有效]
+snippet ext     包含模块 [只对调用该方法的单个对象有效]
 	extend ${0}
 snippet rq      包含文件 [只加载一次]
 	require '${1}'${0}
@@ -324,7 +324,7 @@ snippet al      别名
 	alias ${0}
 snippet alm     方法别名
 	alias_method${0}
-snippet ev      字符串求值
+snippet ev      执行代码
 	eval(${0})
 snippet sh      弹出数组的第一个元素
 	shift${0}
@@ -332,6 +332,8 @@ snippet len     返回字符数或长度
 	length${0}
 snippet sz      size [等同于length]
 	size${0}
+snippet ex      退出执行
+	exit${0}
 snippet bsz     返回字节数
 	bytesize${0}
 snippet en      返回字符串的编码方式
