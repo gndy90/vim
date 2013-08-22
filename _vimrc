@@ -1,7 +1,7 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-22 09:43
+" -----------------     Date: 2013-08-22 18:05
 " -----------------     For Windows, Cygwin and Linux
 
 
@@ -182,13 +182,11 @@ set shiftwidth=4
 set tabstop=4
 
 " 对部分语言设置单独的缩进
-au FileType lua,ruby,eruby,coffee,sh set shiftwidth=2
-au FileType lua,ruby,eruby,coffee,sh set tabstop=2
+au FileType ruby,eruby,coffee,sh set shiftwidth=2
+au FileType ruby,eruby,coffee,sh set tabstop=2
 
 " 根据后缀名指定文件类型
 au BufRead,BufNewFile *.h   setlocal ft=c
-au BufRead,BufNewFile *.di  setlocal ft=d
-au BufRead,BufNewFile *.m   setlocal ft=mma
 au BufRead,BufNewFile *.sql setlocal ft=mysql
 au BufRead,BufNewFile *.txt setlocal ft=txt
 
@@ -325,7 +323,6 @@ let g:snipMate                         = {}
 " 设置补全项之间的继承关系，比如 PHP补全继承HTML的补全
 let g:snipMate.scope_aliases           = {}
 let g:snipMate.scope_aliases['c']      = 'cpp'
-let g:snipMate.scope_aliases['scheme'] = 'racket'
 let g:snipMate.scope_aliases['php']    = 'php,html'
 let g:snipMate.scope_aliases['smarty'] = 'smarty,html'
 let g:snipMate.scope_aliases['eruby']  = 'eruby,html'
@@ -450,40 +447,10 @@ func! Compile_Run_Code()
         else
             exec "!g++ -Wall -std=c++11 -o %:r %:t && ./%:r"
         endif
-    elseif &filetype == "d"
-        if g:isWIN
-            exec "!dmd -wi -unittest %:t && %:r.exe"
-        else
-            exec "!dmd -wi -unittest %:t && ./%:r"
-        endif
-    elseif &filetype == "go"
-        if g:isWIN
-            exec "!go build %:t && %:r.exe"
-        else
-            exec "!go build %:t && ./%:r"
-        endif
-    elseif &filetype == "java"
-        exec "!javac %:t && java %:r"
-    elseif &filetype == "scala"
-        exec "!scala %:t"
-    elseif &filetype == "racket"
-        exec "!racket -fi %:t"
-    elseif &filetype == "haskell"
-        if g:isWIN
-            exec "!ghc --make %:t && %:r.exe"
-        else
-            exec "!ghc --make %:t && ./%:r"
-        endif
-    elseif &filetype == "lua"
-        exec "!lua %:t"
-    elseif &filetype == "io"
-        exec "!io %:t"
-    elseif &filetype == "perl"
-        exec "!perl %:t"
+    elseif &filetype == "lisp"
+        exec "!clisp -i %:t"
     elseif &filetype == "php"
         exec "!php %:t"
-    elseif &filetype == "python"
-        exec "!python %:t"
     elseif &filetype == "ruby"
         exec "!ruby %:t"
     elseif &filetype == "coffee"
