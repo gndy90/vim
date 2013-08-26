@@ -218,19 +218,19 @@ snippet Rext    PHP扩展信息
 snippet Rexc    错误类
 	ReflectionException${0}
 # 正则表达式
-snippet reg     对数组元素进行正则筛选
+snippet regr    对数组元素进行正则筛选
 	preg_grep(${0})
-snippet req     将字符串转换成合法的正则字符串
+snippet requ    将字符串转换成合法的正则字符串
 	preg_quote(${0})
-snippet res     对字符串进行正则分割
+snippet resp    对字符串进行正则分割
 	preg_split(${0})
-snippet rem     正则匹配
+snippet rema    正则匹配
 	preg_match(${0})
-snippet rema    全局匹配
+snippet remaa   全局匹配
 	preg_match_all(${0})
-snippet rer     正则搜索和替换
+snippet rere    正则搜索和替换
 	preg_replace(${0})
-snippet rerc    正则搜索并使用回调函数进行处理
+snippet rerec   正则搜索并使用回调函数进行处理
 	preg_replace_callback(${0})
 # 输入输出
 snippet e       输出
@@ -374,7 +374,7 @@ snippet ex      结束
 	exit(${0});
 snippet ins     检查对象是否是指定类的实例
 	instanceof ${0}
-snippet se      self::
+snippet s       self::
 	self::${0}
 snippet t       $this->
 	$this->${0}

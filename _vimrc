@@ -1,12 +1,12 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-25 09:47
+" -----------------     Date: 2013-08-26 18:04
 " -----------------     For Windows, Cygwin and Linux
 
 
 " 设置工作地点标志（在公司为1，在家为0）
-let g:atCompany = 0
+let g:atCompany = 1
 
 
 " 设置头文件路径，以及tags路径，用于代码补全
@@ -181,8 +181,8 @@ set shiftwidth=4
 set tabstop=4
 
 " 对部分语言设置单独的缩进
-au FileType ruby,eruby,coffee,sh set shiftwidth=2
-au FileType ruby,eruby,coffee,sh set tabstop=2
+au FileType lisp,ruby,eruby,coffee,sh set shiftwidth=2
+au FileType lisp,ruby,eruby,coffee,sh set tabstop=2
 
 " 根据后缀名指定文件类型
 au BufRead,BufNewFile *.h   setlocal ft=c
@@ -447,6 +447,8 @@ func! Compile_Run_Code()
         else
             exec "!g++ -Wall -std=c++11 -o %:r %:t && ./%:r"
         endif
+    elseif &filetype == "lisp"
+        exec "!clisp -i %:t"
     elseif &filetype == "php"
         exec "!php %:t"
     elseif &filetype == "ruby"
