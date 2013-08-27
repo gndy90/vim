@@ -1,7 +1,7 @@
 " -----------------   Author: Ruchee
 " -----------------    Email: my@ruchee.com
 " -----------------  WebSite: http://www.ruchee.com
-" -----------------     Date: 2013-08-26 18:04
+" -----------------     Date: 2013-08-27 18:15
 " -----------------     For Windows, Cygwin and Linux
 
 
@@ -181,8 +181,8 @@ set shiftwidth=4
 set tabstop=4
 
 " 对部分语言设置单独的缩进
-au FileType lisp,ruby,eruby,coffee,sh set shiftwidth=2
-au FileType lisp,ruby,eruby,coffee,sh set tabstop=2
+au FileType lisp,ruby,eruby,coffee,jade,sh set shiftwidth=2
+au FileType lisp,ruby,eruby,coffee,jade,sh set tabstop=2
 
 " 根据后缀名指定文件类型
 au BufRead,BufNewFile *.h   setlocal ft=c
@@ -326,7 +326,9 @@ let g:snipMate.scope_aliases['php']    = 'php,html'
 let g:snipMate.scope_aliases['smarty'] = 'smarty,html'
 let g:snipMate.scope_aliases['blade']  = 'blade,html'
 let g:snipMate.scope_aliases['eruby']  = 'eruby,html'
+let g:snipMate.scope_aliases['jst']    = 'jst,html'
 let g:snipMate.scope_aliases['scss']   = 'scss,css'
+let g:snipMate.scope_aliases['less']   = 'less,css'
 let g:snipMate.scope_aliases['xhtml']  = 'html'
 
 
@@ -349,7 +351,7 @@ let g:airline_theme='badwolf'                " 设置主题
 let g:syntastic_check_on_open=1              " 默认开启
 let g:syntastic_mode_map={'mode': 'active',
             \'active_filetypes':  [],
-            \'passive_filetypes': ['html', 'xhtml', 'smarty', 'blade', 'eruby', 'scss']
+            \'passive_filetypes': ['html', 'css', 'xhtml', 'smarty', 'blade', 'eruby', 'jst', 'jade', 'scss', 'less']
             \}                               " 指定不需要检查的语言
 
 
